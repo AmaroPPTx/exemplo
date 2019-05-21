@@ -1,0 +1,124 @@
+Conversas
+6,92 GB (46%) de 15 GB usados
+Gerenciar
+Termos de Serviço · Privacidade · Regulamentos do programa
+Última atividade da conta: há 22 minutos
+Detalhes
+
+import os
+import json
+import time
+
+socios = {}
+
+
+def menu():
+    print("¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬")
+    print("¬¬¬¬¬¬¬¬¬¬¬                         ¬¬¬¬¬¬¬¬¬¬¬")
+    print("¬¬¬¬¬¬¬¬¬¬¬    Cadastro de sócios   ¬¬¬¬¬¬¬¬¬¬¬")
+    print("¬¬¬¬¬¬¬¬¬¬¬                         ¬¬¬¬¬¬¬¬¬¬¬")
+    print("¬¬¬¬¬¬¬¬¬¬¬    1 - Adicionar Sócio  ¬¬¬¬¬¬¬¬¬¬¬")
+    print("¬¬¬¬¬¬¬¬¬¬¬    2 - Buscar sócio     ¬¬¬¬¬¬¬¬¬¬¬")
+    print("¬¬¬¬¬¬¬¬¬¬¬    3 - Remover sócio    ¬¬¬¬¬¬¬¬¬¬¬")
+    print("¬¬¬¬¬¬¬¬¬¬¬    4 - Listar Sócios    ¬¬¬¬¬¬¬¬¬¬¬")
+    print("¬¬¬¬¬¬¬¬¬¬¬    5 - Sair             ¬¬¬¬¬¬¬¬¬¬¬")
+    print("¬¬¬¬¬¬¬¬¬¬¬                         ¬¬¬¬¬¬¬¬¬¬¬")
+    print("¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬")
+    opcao = int(input("Selecione uma opção: "))
+    return opcao                
+
+
+def cadastro():
+
+    
+    os.system('cls' if os.name == 'nt' else 'clear')#Limpa o console
+
+    print("¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬")
+    print("¬¬¬¬¬¬¬¬¬¬¬                         ¬¬¬¬¬¬¬¬¬¬¬")
+    print("¬¬¬¬¬¬¬¬¬¬¬    Adicionar Sócio      ¬¬¬¬¬¬¬¬¬¬¬")
+    print("¬¬¬¬¬¬¬¬¬¬¬                         ¬¬¬¬¬¬¬¬¬¬¬")
+    print("¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬")
+    
+    addSocio = input("Nome do sócio: ")
+    
+    telefoneSocio = int(input("Número de telefone: "))
+    
+    cpfSocio = input("CPF:  ")
+    
+    socios[addSocio] = ("|telefone: {}| - |CPF: {}|".format(telefoneSocio,cpfSocio))
+    
+    time.sleep(0.5)
+    
+    print("Cadastro realizado com sucesso!")
+    time.sleep(0.5)
+    os.system('cls' if os.name == 'nt' else 'clear')#Limpa o console
+    time.sleep(0.5)
+    
+def buscarSocios():
+    
+    os.system('cls' if os.name == 'nt' else 'clear')#Limpa o console
+    
+    print("¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬")
+    print("¬¬¬¬¬¬¬¬¬¬¬                         ¬¬¬¬¬¬¬¬¬¬¬")
+    print("¬¬¬¬¬¬¬¬¬¬¬    Buscar Sócio         ¬¬¬¬¬¬¬¬¬¬¬")
+    print("¬¬¬¬¬¬¬¬¬¬¬                         ¬¬¬¬¬¬¬¬¬¬¬")
+    print("¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬")
+    
+    busca = input("Digite o nome do sócio que deseja buscar: ")
+    
+    if busca in socios:
+        print(socios[busca])
+    else:
+        print("O sócio não está cadastrado no sistema!")
+        os.system('cls' if os.name == 'nt' else 'clear')#Limpa o console
+        time.sleep(0.5)
+
+def deletarSocio():
+
+    os.system('cls' if os.name == 'nt' else 'clear')#Limpa o console
+    print("¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬")
+    print("¬¬¬¬¬¬¬¬¬¬¬                         ¬¬¬¬¬¬¬¬¬¬¬")
+    print("¬¬¬¬¬¬¬¬¬¬¬      Remover Sócio      ¬¬¬¬¬¬¬¬¬¬¬")
+    print("¬¬¬¬¬¬¬¬¬¬¬                         ¬¬¬¬¬¬¬¬¬¬¬")
+    print("¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬")
+    excluiSocio = input("Digite o nome do sócio que deseja remover: ")
+    
+    if excluiSocio in socios:
+        del socios[excluiSocio]
+        time.sleep(0.5)
+        print("Sócio removido com sucesso!")
+        time.sleep(0.5)
+        os.system('cls' if os.name == 'nt' else 'clear')#Limpa o console
+        time.sleep(0.5)
+        
+    else:
+        time.sleep(0.5)
+        print("Esse sócio não está cadastrado no sistema!")
+        time.sleep(0.5)
+        os.system('cls' if os.name == 'nt' else 'clear')#Limpa o console
+        time.sleep(0.5)
+        
+def listaSocios():
+    
+    os.system('cls' if os.name == 'nt' else 'clear')#Limpa o console
+    print("¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬")
+    print("¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬                         ¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬")
+    print("¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬    Lista de Sócios      ¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬")
+    print("¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬                         ¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬")
+    print("¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬")
+    print(json.dumps(socios, indent=4))
+        
+while True:
+    
+    opcao = menu()
+
+    if opcao ==3:
+        deletarSocio()
+    elif opcao == 5:
+        break
+    elif opcao == 1:
+        cadastro()
+    elif opcao ==4:
+        listaSocios()
+    elif opcao == 2:
+        buscarSocios()
